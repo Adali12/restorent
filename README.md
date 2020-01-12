@@ -22,3 +22,17 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+Restaurant listing app (Web)
+
+this web app build using framework of ruby on rails
+
+version
+
+-Rails 6.2.0
+
+-ruby 2.7.0
+
+to run it firstly you must build environment of ruby with the version that mentioned above!!
+
+
+
