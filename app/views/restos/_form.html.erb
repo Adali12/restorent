@@ -1,0 +1,59 @@
+<%= form_with(model: resto, local: true) do |form| %>
+  <% if resto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(resto.errors.count, "error") %> prohibited this resto from being saved:</h2>
+
+      <ul>
+        <% resto.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :details %>
+    <%= form.text_field :details %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= image_tag(@resto.image.url) if @resto.image && @resto.image.url %>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
+  </div>
+  <%= form.fields_for :break_fasts do |ff| %>
+    <div class="field">
+      <%= form.label :item %>
+      <%= ff.text_field :item %>
+    </div>
+    <div class="field">
+      <%= ff.label :price %>
+      <%= ff.text_field :price %>
+    </div>
+  <% end %>
+  <%= form.fields_for :lunches do |ff| %>
+    <div class="field">
+      <%= ff.label :item %>
+      <%= ff.text_field :item %>
+    </div>
+    <div class="field">
+      <%= ff.label :price %>
+      <%= ff.text_field :price %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
