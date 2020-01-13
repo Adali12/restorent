@@ -1,3 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">PODZO</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Restorent</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" href="#">Contact_Us </a>
+    </li>
+    <li class="nav-item">
+    <%= link_to "Login", new_session_path,class:"nav-link" %>
+  </li>
+    <li class="nav-item">
+    <%= link_to "Sign up", new_user_path,class: "btn bg-orange text-white px-4" %>
+  </li>
+    </ul>
+  </div>
+</nav>
 <!DOCTYPE html>
 <html>
   <head>
@@ -21,12 +47,43 @@
   <%= link_to "Profile", user_path(current_user.id) %>
   <%= link_to "Logout", session_path(current_user.id), method: :delete %>
 <% else %>
-  <%= link_to "Sign up", new_user_path %>
-  <%= link_to "Login", new_session_path %>
 <% end %>
-
 <%= yield %>
 </body>
+<div class="card-footer bg-dark w-100 pb-0">
+  <div class="row featurette">
+    <div class="col-md-6 phone pl-5 text-white">
+      <h1>Contact us</h1>
+      <p>Tel: +250 784454918</p>
+      <p>Email: abayiringira1994.com</p>
+      <p>A: Kicukiro,Sonatube,Niboye(kk 19 Ave)</p>
+      
+    </div>
+    <div class="col-md-6 d-block py-5">
+      <form class="">
+        <div class="form-inline form-group">
+          <input class="form-control m-2 " type="text" name="" value="" placeholder="email">
+          <input class="form-control m-2" type="text" name="" value="" placeholder="name">
+        </div>
+        <div class="form-group pl-4">
+            <textarea class="form-control mr-5 w-75" name="name" rows="3" placeholder="Add text"></textarea>
+        </div>
+        <div class="action pl-4">
+          <input type="submit" name="" value="Send" class="btn btn-light text-orange m-auto">
+        </div>
+
+      </form>
+    </div>
+  </div>
+  <div class="row bg-black p-2">
+    <div class="col text-white">
+      <p>Challenge by <b>Awesomity Ltd</b></p>
+    </div>
+    <div class="col text-white text-right">
+      <p>Developed by <b class="text-orange">Abayiringira Adali</b></p>
+    </div>
+  </div>
+</div>
 </html>
 
    

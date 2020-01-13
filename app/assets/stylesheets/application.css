@@ -18,3 +18,70 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+  .text-orange{
+    color: #ff6000
+  }
+  .bg-orange{
+    background-color: #ff6000;
+  }
+  .bg-black{
+    background-color: black;
+  }
+  
+  .card-header .navbar a{
+    color: #ff6000;
+  }
+  a{
+    color: #ff6000;
+  }
+  a:hover{
+    text-decoration: none;
+  }
+  .head{
+    background: url('background.png');
+    background-size: contain;
+  background-repeat: no-repeat;
+    min-height: 400px;
+  }
+  img.bg{
+    width: 100%;
+    height: auto;
+  
+  }
+  .container{
+    width: 100%;
+  }
+  .small_image img{
+    width:120px;
+  }
+  .phone img{
+    width: 500px;
+  }
+  textarea {
+    width: 80%;
+  }
+  .show-image{
+  
+    height: 300px;
+    overflow-y: hidden;
+  }
+  .show-image img{
+    width: 100%;
+  }
+  .info{
+    width: 400px;
+  }
+  .info table tr td{
+    padding-bottom: 20px;
+  }
+  .field img{
+    width: 150px;
+  }
+  .nav-item a{
+    color: black
+  }
+
+.small_size{
+width: 200px;
+height: 100px;
+}
