@@ -1,30 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-Restaurant listing app (Web)
+#Restaurant listing app (Web)
 
 this web app build using framework of ruby on rails
+
+to run it firstly you must build environment of ruby with the version that mentioned bellow
 
 version
 
@@ -32,7 +13,24 @@ version
 
 -ruby 2.7.0
 
-to run it firstly you must build environment of ruby with the version that mentioned above!!
+
+# Function   of this app
+
+-login function
+
+-sign up function
+
+-search function
+
+-Restaurent registration function
+
+-Restaurent Update function 
+
+-user can view available restaurent
+
+-user can search restaurent by location name
+
+-user can view restaurent details and menus
 
 
 
