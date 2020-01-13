@@ -77,11 +77,15 @@
   .field img{
     width: 150px;
   }
-  .nav-item a{
-    color: black
+  .nav-item a:hover{
+    color: black;
+    background-color: transparent;
   }
 
 .small_size{
 width: 200px;
 height: 100px;
+}
+.container{
+    margin-top: 70px;
 }

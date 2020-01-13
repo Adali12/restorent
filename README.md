@@ -13,6 +13,8 @@ version
 
 -ruby 2.7.0
 
+-PostgreSQL 12
+
 
 # Function   of this app
 

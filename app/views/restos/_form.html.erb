@@ -1,59 +1,83 @@
-<%= form_with(model: resto, local: true) do |form| %>
+<div class="container">
+<%= form_for(resto) do |f| %>
   <% if resto.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(resto.errors.count, "error") %> prohibited this resto from being saved:</h2>
+      <h2><%= pluralize(resto.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
 
       <ul>
-        <% resto.errors.full_messages.each do |message| %>
+        <% restaurant.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
+  <div class="row">
+  <div class="col-md-6">
+    <div class="div1 ">
+      <div class="w-100 mx-4">
+        <div class="w-50 m-auto">
+          <h5 class="text-orange">INFO</h5>
+          <div class="field form-group">
+            <%= f.text_field :name, class: "form-control", placeholder: "Add Restorent name"%>
+          </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+          <div class="field form-group">
+            <%= f.label :image, "Add restaurant icon" %><br />
+            <%= image_tag(@resto.image.url) if @resto.image && @resto.image.url %>
+            <%= f.file_field :image %>
+            <%= f.hidden_field :image_cache, class: "form-control"%>
+          </div>
 
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
-  </div>
+          <div class="field form-group">
+            <%= f.text_field :location, class: "form-control", placeholder: "Add Restorent Location"%>
+          </div>
 
-  <div class="field">
-    <%= form.label :details %>
-    <%= form.text_field :details %>
-  </div>
+          <div class="field form-group">
+            <%= f.text_field :website, class: "form-control", placeholder: "Add Website"%>
+          </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= image_tag(@resto.image.url) if @resto.image && @resto.image.url %>
-    <%= form.file_field :image %>
-    <%= form.hidden_field :image_cache %>
-  </div>
-  <%= form.fields_for :break_fasts do |ff| %>
-    <div class="field">
-      <%= form.label :item %>
-      <%= ff.text_field :item %>
+          <div class="form-group text-left">
+            <%= f.check_box :online_delivery %>
+            <%= f.label :online_delivery %>
+          </div>
+
+          <div class="form-group text-left">
+            <%= f.check_box :table_booking %>
+            <%= f.label :table_booking %>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="field">
-      <%= ff.label :price %>
-      <%= ff.text_field :price %>
-    </div>
-  <% end %>
-  <%= form.fields_for :lunches do |ff| %>
-    <div class="field">
-      <%= ff.label :item %>
-      <%= ff.text_field :item %>
-    </div>
-    <div class="field">
-      <%= ff.label :price %>
-      <%= ff.text_field :price %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
   </div>
+  <div class="col-md-6 >
+    <div class="div2">
+      <div class="row m-auto">
+        <div class="col text-left">
+          <h6 class="text-orange">Breakfast</h6>
+          <%= f.fields_for :break_fasts do |ff| %>
+          <div class="form-group form-inline">
+            <%= ff.text_field :item, class: "form-control mr-2", placeholder: "Item" %><br>
+            <%= ff.text_field :price, class: "form-control w-25", placeholder: "$" %>
+          </div>
+          <% end %>
+        </div>
+        <div class="col text-left">
+          <h6 class="text-orange">Lunch</h6>
+          <%= f.fields_for :lunches do |ff| %>
+          <div class="form-group form-inline">
+            <%= ff.text_field :item, class: "form-control mr-2", placeholder: "Item" %><br>
+            <%= ff.text_field :price, class: "form-control w-25", placeholder: "$" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="actions text-left">
+        <%= f.submit class: "btn bg-orange m-2 text-white rounded-pill" %>
+      </div>
+    </div>
+  </div>
+</div>
+  
 <% end %>
+</div>
+</div>

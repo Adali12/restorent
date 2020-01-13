@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(version: 2020_01_13_090816) do
     t.string "location"
     t.string "details"
     t.text "image"
+    t.string "website"
+    t.boolean "online_delivery", default: false
+    t.boolean "table_booking", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

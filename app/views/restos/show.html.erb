@@ -1,36 +1,102 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @resto.name %>
-</p>
+<div class="show-image">
+<%= image_tag @resto.image.url %>
+</div>
+<div class="w-100">
 
-<p>
-  <strong>Location:</strong>
-  <%= @resto.location %>
-</p>
+<div class="row featurette">
+  <div class="col-md-6 phone pl-5">
+    <div id="carouselExampleIndicators" class="carousel slide mx-5 p-5" data-ride="carousel">
+      <div class="info card ">
 
-<p>
-  <strong>Details:</strong>
-  <%= @resto.details %>
-</p>
+         <div class="card-header">
+           <ul class="navbar nav">
+              <li class="nav-item">
+                <a href="#carouselExampleIndicators" role="button" data-slide-to="0" class="nav-link ">
+                  <h5>Info</h5>
+                  </a>
+              </li>
+              <li class="nav-item">
+                <a href="#carouselExampleIndicators" role="button" data-slide-to="1" class="bnav-link text-orange">
+                    <h5>Rating</h5>
+                  </a>
+              </li>
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @resto.image.url %>
-</p>
-<% @resto.break_fasts.each do |break_fast| %>
-  <p>
-    <%= break_fast.item %>
-    <%= break_fast.price %>
-  </p>
-  <% end%>
-  <% @resto.lunches.each do |lunchs| %>
-    <p>
-      <%= lunchs.item %>
-      <%= lunchs.price %>
-    </p>
-<% end %>
-
-<%= link_to 'Edit', edit_resto_path(@resto) %> |
-<%= link_to 'Back', restos_path %>
+            </ul>
+       </div>
+      <div class="card-body carousel-inner">
+        <div class="carousel-item active">
+          <table>
+            <tbody>
+              <tr>
+                <td><strong>Resto name:</strong></td>
+                <td><%= @resto.name %></td>
+              </tr>
+              <tr>
+                <td><strong>Location:</strong></td>
+                <td><%= @resto.location %></td>
+              </tr>
+              <tr>
+                <td><strong>Website:</strong></td>
+                <td><%= @resto.website %></td>
+              </tr>
+              <tr>
+                <td><strong>Online delivery:</strong></td>
+                <% if @resto.online_delivery == false %>
+                  <td>No</td>
+                <% else %>
+                  <td>Yes</td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><strong>Table booking:</strong></td>
+                <% if @resto.table_booking == false %>
+                  <td>No</td>
+                <% else %>
+                  <td>Yes</td>
+                <% end %>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </div>
+    </div>
+</div>
+  <div class="col-md-6 d-block py-5">
+    <div class="menu card mr-5">
+    <div class="card-header text-orange">
+      <h4>Menu</h4>
+    </div>
+    <div class="card-body">
+      <h2 ><b>Breakfast</b></h2>
+      <% @resto.break_fasts.each do |break_fast| %>
+        <table class="table table-borderless table-sm">
+          <tbody>
+            <tr>
+              <td><%= break_fast.item %></td>
+              <td class="text-right text-orange"><%= break_fast.price %>Rwf</td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+      <hr>
+      <h2><b>Lunch</b></h2>
+      <% @resto.lunches.each do |lunch| %>
+      <table class="table table-borderless table-sm">
+        <tbody>
+          <tr>
+            <td><%= lunch.item %></td>
+            <td class="text-right text-orange"><%= lunch.price %>Rwf</td>
+          </tr>
+        </tbody>
+      </table>
+      <% end %>
+      <% if logged_in? && current_user.id == @resto.user_id %>
+        <%= link_to 'Update Menu', edit_restaurant_path(@resto), class: "btn bg-orange shadow-sm text-white" %>
+      <% end %>
+    </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -5,7 +5,9 @@ class CreateRestos < ActiveRecord::Migration[6.0]
       t.string :location
       t.string :details
       t.text :image
-
+      t.string :website
+      t.boolean :online_delivery,default: false
+      t.boolean :table_booking,default: false
       t.timestamps
     end
   end

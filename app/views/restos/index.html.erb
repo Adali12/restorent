@@ -1,8 +1,16 @@
 <div class="container cards-container ">
-<h5>You have a restaurant? <%= link_to 'Register here', new_resto_path, class: "text-orange" %></h5>
+<div class="head text-center py-4 my-0 mb-5">
+  <div class="heading my-4">
+    <h2><b>Find nearby restaurants</b></h2>
+  </div>
+  <%= search_form_for @search do |f| %>
+    <div class="form-group my-4">
+      <%= f.search_field :name_or_location_cont, class: "form-control w-25 m-auto shadow", placeholder: "Search restaurants" %>
+    </div>
+  <% end %>
 </div>
 <div class="list text-center my-5">
-  <h1>Our Restaurants</h1>
+  <h2><b>Our Restaurants</b></h2>
   <div class="row row-cols-1 row-cols-md-4" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
   <% @restos.each do |resto| %>
       <div class="col mb-4">
@@ -21,13 +29,11 @@
     <% end %>
   </div>
 </div>
-
 <div class="mt-5 bg-white border rounded text-center shadow-sm p-5">
-  <h4>How it works</h4>
+  <h3><b>How it works?<b></h3>
   <div class="card-deck mt-5">
   <div class="small_image card border-0">
     <%= image_tag ("step1.png"), class: "card-img-top m-auto"%>
-
     <div class="card-body">
       <h5 class="card-title">Step uno</h5>
       <p class="card-text">Lorem ipsum dolor sit amet <br>consecteur adipisicing elit. <br>sed do eiusmod</p>

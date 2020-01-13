@@ -16,8 +16,8 @@ end
      3.times {@resto.lunches.build}
   end
   def edit
-    1.times {@restos.breakfasts.build}
-    1.times {@restos.lunches.build}
+    1.times {@resto.break_fasts.build}
+    1.times {@resto.lunches.build}
   end
   def create
     @resto = Resto.new(resto_params)
@@ -54,6 +54,6 @@ end
       @resto = Resto.find(params[:id])
     end
     def resto_params
-      params.require(:resto).permit(:name, :location, :details, :image, :image_cache, break_fasts_attributes: [:id, :item, :price], lunches_attributes: [:id, :item, :price])
+      params.require(:resto).permit(:name, :location, :details, :image, :image_cache, :webstite, :online_delivery, :table_booking, break_fasts_attributes: [:id, :item, :price], lunches_attributes: [:id, :item, :price])
     end
 end
