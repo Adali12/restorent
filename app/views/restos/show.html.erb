@@ -59,6 +59,15 @@
             </tbody>
           </table>
         </div>
+        <div class="carousel-item">
+            <div id="comments_area">
+              <!-- Render to display the posted comment list on the restorent detail page -->
+              <%= render partial: 'comments/index', locals: { comments: @comments, resto: @resto } %>
+            </div>
+
+            <!-- Render to display the comment field on the restoent detail page -->
+            <%= render partial: 'comments/form', locals: { comment: @comment, resto: @resto } %>
+           </div>
         </div>
       </div>
     </div>

@@ -9,6 +9,8 @@ class RestosController < ApplicationController
     end
 end
   def show
+    @comments = @resto.comments
+    @comment = @resto.comments.build
   end
   def new
     @resto = Resto.new
